@@ -36,7 +36,6 @@
       <input type="text" id="price2" v-model="newPizza.options[1].price" />
     </div>
     <button type="button" class="btn_green" @click="add">Add</button>
-    {{ this.newPizza }}
   </form>
 </template>
 

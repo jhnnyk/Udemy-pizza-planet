@@ -25,7 +25,7 @@ export default {
 body {
   font-family: 'Crimson Text', serif;
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 a {
