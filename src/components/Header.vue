@@ -6,21 +6,13 @@
     </div>
     <nav>
       <ul>
-        <li>
-          <a href="/">home</a>
-        </li>
+        <router-link to="/" tag="li"><a>home</a></router-link>
         <span>~</span>
-        <li>
-          <a href="/menu">menu</a>
-        </li>
+        <router-link to="/menu" tag="li"><a>menu</a></router-link>
         <span>~</span>
-        <li>
-          <a href="/contact">contact</a>
-        </li>
+        <router-link to="/contact" tag="li"><a>contact us</a></router-link>
         <span>~</span>
-        <li>
-          <a href="/about">about us</a>
-        </li>
+        <router-link to="/about" tag="li"><a>about us</a></router-link>
       </ul>
     </nav>
   </header>
