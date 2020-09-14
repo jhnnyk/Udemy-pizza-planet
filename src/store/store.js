@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { firebaseAuth } from '../firebase';
 
 Vue.use(Vuex);
 
@@ -52,12 +53,49 @@ export const store = new Vuex.Store({
       },
     },
     orders: [],
+    currentUser: null,
   },
   getters: {
     getMenuItems: (state) => state.menuItems,
     numberOfOrders: (state) => state.orders.length,
+    currentUser: (state) => state.currentUser,
   },
   mutations: {
     addOrder: (state, order) => state.orders.push(order),
+    userStatus: (state, user) => {
+      if (user) {
+        state.currentUser = user.email;
+      } else {
+        state.currentUser = null;
+      }
+    },
+  },
+  actions: {
+    signIn: async ({ commit }, user) => {
+      try {
+        const userData = await firebaseAuth.signInWithEmailAndPassword(
+          user.email,
+          user.password
+        );
+        commit('userStatus', userData.user);
+      } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password');
+        } else {
+          alert(errorMessage);
+        }
+      }
+    },
+    signOut: async ({ commit }) => {
+      try {
+        await firebaseAuth.signOut();
+      } catch (error) {
+        alert(`error signing out, ${error}`);
+      }
+      commit('userStatus', null);
+    },
   },
 });
