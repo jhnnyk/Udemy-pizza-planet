@@ -17,7 +17,15 @@ const routes = [
   { path: '/', name: 'homeLink', component: Home },
   { path: '/menu', name: 'menuLink', component: Menu },
   { path: '/contact', name: 'contactLink', component: Contact },
-  { path: '/admin', name: 'adminLink', component: Admin },
+  {
+    path: '/admin',
+    name: 'adminLink',
+    component: Admin,
+    beforeEnter: (to, from, next) => {
+      alert('this area is for authorized users only, please login to continue');
+      next();
+    },
+  },
   {
     path: '/about',
     component: About,

@@ -68,16 +68,6 @@ export default {
     NewPizza,
     Login,
   },
-  data() {
-    return {
-      name: 'John',
-    };
-  },
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      alert(`Hi ${vm.name}`);
-    });
-  },
   methods: {
     async signOut() {
       try {
