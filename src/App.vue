@@ -30,7 +30,7 @@ export default {
 body {
   font-family: 'Crimson Text', serif;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.5rem;
 }
 
 a {
@@ -76,6 +76,24 @@ span {
 
 .info_block img {
   width: 30%;
+}
+
+input,
+textarea {
+  font-size: 1.1rem;
+}
+
+button {
+  border: none;
+  font-size: 1.1rem;
+}
+
+.btn_green {
+  background: rgb(101, 168, 101);
+}
+
+.btn_red {
+  background: rgb(241, 70, 70);
 }
 
 @media screen and (min-width: 900px) {
