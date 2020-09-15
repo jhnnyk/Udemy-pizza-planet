@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /menu/{docId} {
+    	allow write, update, delete: if request.auth.uid != null
+      allow read
+    }
+    match /orders/{docId} {
+    	allow read: if request.auth.uid != null
+      allow write
+    }
+  }
+}
