@@ -10,14 +10,19 @@ const getters = {
   getOrders: (state) => state.orders,
 };
 
-const mutations = {
-  addOrder: (state, order) => state.orders.push(order),
-};
+const mutations = {};
 
 const actions = {
   setOrdersRef: firestoreAction((context) => {
-    return context.bindFirestoreRef('orders', dbOrdersRef);
+    return context.bindFirestoreRef('orders', dbOrdersRef.orderBy('createdAt'));
   }),
+  addNewOrder: async (context, order) => {
+    try {
+      await dbOrdersRef.add(order);
+    } catch (error) {
+      alert('Sorry, there was a problem placing your order. Please try again.');
+    }
+  },
 };
 
 export default {
