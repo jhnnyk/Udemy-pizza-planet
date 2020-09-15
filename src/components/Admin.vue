@@ -62,7 +62,7 @@
               <td>{{ orderItem.name }}</td>
               <td>{{ orderItem.size }}"</td>
               <td>{{ orderItem.quantity }}</td>
-              <td>{{ orderItem.price }}</td>
+              <td>{{ orderItem.price | currency }}</td>
             </tr>
           </tbody>
         </table>
